@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PINBALLISTIC — A Retro Pinball Roguelike</title>
+  <meta name="description" content="Pinballistic is a retro pinball roguelike. Launch the ball, build your run, break the machine. Wishlist now and join the newsletter." />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="PINBALLISTIC — A Retro Pinball Roguelike" />
+  <meta property="og:description" content="Launch the ball. Build your run. Break the machine. A retro pinball roguelike." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- CRT scanline overlay -->
+  <div class="crt-overlay" aria-hidden="true"></div>
+
+  <!-- ====================== NAV ====================== -->
+  <header class="nav">
+    <a href="#top" class="nav__logo">PINBALL<span>ISTIC</span></a>
+    <nav class="nav__links">
+      <a href="#features">Features</a>
+      <a href="#gameplay">Gameplay</a>
+      <a href="#newsletter">Newsletter</a>
+      <a href="#WISHLIST_URL" class="btn btn--mini wishlist-link" data-wishlist>Wishlist</a>
+    </nav>
+  </header>
+
+  <!-- ====================== HERO ====================== -->
+  <section id="top" class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="hero__bumpers" aria-hidden="true">
+      <span class="bumper bumper--1"></span>
+      <span class="bumper bumper--2"></span>
+      <span class="bumper bumper--3"></span>
+    </div>
+
+    <div class="hero__inner">
+      <p class="hero__kicker">// NOW IN DEVELOPMENT</p>
+      <h1 class="hero__title">
+        <span class="hero__title-line">PINBALLISTIC</span>
+      </h1>
+      <p class="hero__tagline">A retro pinball <strong>roguelike</strong>.<br />Launch the ball. Build your run. Break the machine.</p>
+
+      <!-- DMD-style score display -->
+      <div class="dmd" role="img" aria-label="Dot matrix score display">
+        <div class="dmd__row">
+          <span class="dmd__label">SCORE</span>
+          <span class="dmd__value" id="dmd-score">000000000</span>
+        </div>
+        <div class="dmd__row dmd__row--sub">
+          <span class="dmd__label">MULTIBALL</span>
+          <span class="dmd__mult" id="dmd-mult">x1</span>
+          <span class="dmd__label">RUN</span>
+          <span class="dmd__value dmd__value--sm" id="dmd-run">01</span>
+        </div>
+      </div>
+
+      <div class="hero__cta">
+        <a href="#WISHLIST_URL" class="btn btn--primary wishlist-link" data-wishlist>
+          <span class="btn__icon">★</span> WISHLIST NOW
+        </a>
+        <a href="#newsletter" class="btn btn--ghost">JOIN THE NEWSLETTER</a>
+      </div>
+      <p class="hero__platforms">Coming to Steam · PC &amp; Mac</p>
+    </div>
+  </section>
+
+  <!-- ====================== FEATURES ====================== -->
+  <section id="features" class="section features">
+    <h2 class="section__title">EVERY RUN HITS DIFFERENT</h2>
+    <p class="section__sub">Tilt the odds. Each ball drop reshuffles the table.</p>
+
+    <div class="feature-grid">
+      <article class="feature-card">
+        <div class="feature-card__icon">🎱</div>
+        <h3>Roguelike Tables</h3>
+        <p>Procedurally remixed playfields, bumpers, and ramps. No two machines play the same way twice.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-card__icon">⚡</div>
+        <h3>Stack Your Build</h3>
+        <p>Draft synergistic relics between balls. Chain multipliers, rig the flippers, bend the physics.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-card__icon">👾</div>
+        <h3>Boss Bumpers</h3>
+        <p>Fight back against the machine itself. Clear escalating targets before you drain your last ball.</p>
+      </article>
+      <article class="feature-card">
+        <div class="feature-card__icon">📺</div>
+        <h3>Pure Retro Soul</h3>
+        <p>Chunky pixels, a glowing DMD, and a synthwave score. Built to feel like the arcade you remember.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ====================== GAMEPLAY ====================== -->
+  <section id="gameplay" class="section gameplay">
+    <h2 class="section__title">SEE IT IN MOTION</h2>
+    <p class="section__sub">Drop in screenshots, GIFs, or a trailer embed here.</p>
+
+    <div class="shots">
+      <!-- Replace these placeholders with <img src="assets/shot-1.png" alt="..."> -->
+      <div class="shot shot--placeholder"><span>SCREENSHOT 01</span></div>
+      <div class="shot shot--placeholder"><span>SCREENSHOT 02</span></div>
+      <div class="shot shot--placeholder"><span>SCREENSHOT 03</span></div>
+    </div>
+
+    <!-- To embed a YouTube trailer, paste the iframe here:
+    <div class="trailer">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Trailer" allowfullscreen></iframe>
+    </div>
+    -->
+  </section>
+
+  <!-- ====================== NEWSLETTER (BEEHIIV) ====================== -->
+  <section id="newsletter" class="section newsletter">
+    <div class="newsletter__inner">
+      <h2 class="section__title">GET ON THE HIGH SCORE LIST</h2>
+      <p class="section__sub">Devlogs, beta keys, and launch alerts — straight to your inbox. No spam, ever.</p>
+
+      <!-- ============================================================
+           BEEHIIV NEWSLETTER
+           Two ways to connect — pick ONE:
+
+           OPTION A (recommended, no styling fuss): paste your beehiiv
+           iframe embed. In beehiiv go to Settings → Publication →
+           Embed / "Subscribe Forms", copy the iframe, and replace the
+           block below with it. It will inherit the dark frame around it.
+
+           OPTION B (custom-styled form, kept below): point the form's
+           action at your beehiiv embed URL. Replace YOUR_PUBLICATION_ID
+           in the action with the id from your embed link
+           (https://embeds.beehiiv.com/XXXXXXXX-XXXX-...).
+           ============================================================ -->
+
+      <!-- OPTION B: custom themed form -->
+      <form
+        id="newsletter-form"
+        class="news-form"
+        action="https://embeds.beehiiv.com/YOUR_PUBLICATION_ID"
+        method="post"
+        target="_blank"
+      >
+        <label class="sr-only" for="news-email">Email address</label>
+        <input
+          id="news-email"
+          name="email"
+          type="email"
+          inputmode="email"
+          autocomplete="email"
+          placeholder="player@arcade.com"
+          required
+        />
+        <button type="submit" class="btn btn--primary">INSERT COIN →</button>
+      </form>
+      <p class="news-form__note" id="news-note">⚠ Replace <code>YOUR_PUBLICATION_ID</code> in index.html with your beehiiv embed id.</p>
+    </div>
+  </section>
+
+  <!-- ====================== FINAL CTA ====================== -->
+  <section class="section final-cta">
+    <h2 class="section__title">DON'T LET IT DRAIN.</h2>
+    <a href="#WISHLIST_URL" class="btn btn--primary btn--xl wishlist-link" data-wishlist>
+      <span class="btn__icon">★</span> WISHLIST ON STEAM
+    </a>
+  </section>
+
+  <!-- ====================== FOOTER ====================== -->
+  <footer class="footer">
+    <div class="footer__logo">PINBALL<span>ISTIC</span></div>
+    <nav class="footer__social">
+      <!-- Replace # with your real links -->
+      <a href="#" aria-label="Discord">Discord</a>
+      <a href="#" aria-label="Bluesky">Bluesky</a>
+      <a href="#" aria-label="X / Twitter">X</a>
+      <a href="#" aria-label="YouTube">YouTube</a>
+    </nav>
+    <p class="footer__copy">© <span id="year"></span> Pinballistic. Made by a tiny indie studio.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
