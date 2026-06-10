@@ -138,40 +138,14 @@
       <p class="section__sub">Devlogs, beta keys, and launch alerts — straight to your inbox. No spam, ever.</p>
 
       <!-- ============================================================
-           BEEHIIV NEWSLETTER
-           Two ways to connect — pick ONE:
-
-           OPTION A (recommended, no styling fuss): paste your beehiiv
-           iframe embed. In beehiiv go to Settings → Publication →
-           Embed / "Subscribe Forms", copy the iframe, and replace the
-           block below with it. It will inherit the dark frame around it.
-
-           OPTION B (custom-styled form, kept below): point the form's
-           action at your beehiiv embed URL. Replace YOUR_PUBLICATION_ID
-           in the action with the id from your embed link
-           (https://embeds.beehiiv.com/XXXXXXXX-XXXX-...).
+           BEEHIIV NEWSLETTER — official embed (loader script).
+           The script injects beehiiv's hosted subscribe form right here.
+           Style its colors/fonts inside beehiiv's form builder so it
+           matches the dark theme.
            ============================================================ -->
-
-      <!-- OPTION B: custom themed form -->
-      <form
-        id="newsletter-form"
-        class="news-form"
-        action="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="2304074c-bd90-4db8-8021-0c6724eedfcc"
-        method="post"
-        target="_blank"
-      >
-        <label class="sr-only" for="news-email">Email address</label>
-        <input
-          id="news-email"
-          name="email"
-          type="email"
-          inputmode="email"
-          autocomplete="email"
-          placeholder="player@arcade.com"
-          required
-        />
-        <button type="submit" class="btn btn--primary">INSERT COIN →</button>
-      </form>
+      <div class="beehiiv-embed-wrap">
+        <script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="2304074c-bd90-4db8-8021-0c6724eedfcc"></script>
+      </div>
     </div>
   </section>
 

@@ -469,46 +469,12 @@ a { color: inherit; text-decoration: none; }
   box-shadow: 0 0 50px rgba(255,46,136,0.12);
 }
 .newsletter__inner { text-align: center; }
-.news-form {
+
+/* beehiiv hosted embed */
+.beehiiv-embed-wrap {
   margin: 2.4rem auto 0;
-  display: flex;
-  gap: 0.8rem;
-  max-width: 520px;
-  flex-wrap: wrap;
-  justify-content: center;
+  max-width: 540px;
 }
-.news-form input {
-  flex: 1 1 240px;
-  min-width: 0;
-  background: #0c0718;
-  border: 2px solid var(--line);
-  border-radius: 4px;
-  color: var(--ink);
-  padding: 0.95rem 1.1rem;
-  font-family: var(--font-dmd);
-  font-size: 1.3rem;
-  letter-spacing: 1px;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.news-form input::placeholder { color: #5a4a78; }
-.news-form input:focus {
-  outline: none;
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 16px rgba(33,230,255,0.4);
-}
-.news-form__note {
-  margin-top: 1rem;
-  font-size: 0.78rem;
-  color: var(--neon-amber);
-}
-.news-form__note code {
-  background: rgba(0,0,0,0.4);
-  padding: 1px 5px;
-  border-radius: 3px;
-  font-family: var(--font-dmd);
-  font-size: 0.95rem;
-}
-.news-form__note--ok { color: var(--neon-lime); }
 
 /* =========================================================
    FINAL CTA + FOOTER

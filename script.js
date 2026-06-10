@@ -8,10 +8,6 @@
 const CONFIG = {
   // Your Steam wishlist / store page URL (or itch.io, etc.)
   WISHLIST_URL: "https://store.steampowered.com/app/4494280/Pinballistic/",
-
-  // If you pasted your beehiiv embed id into index.html's form action,
-  // set this to true to hide the setup warning note.
-  BEEHIIV_CONNECTED: false,
 };
 
 /* ---------------------------------------------------------
@@ -109,39 +105,7 @@ document.querySelectorAll("[data-wishlist]").forEach((el) => {
 })();
 
 /* ---------------------------------------------------------
-   4. Newsletter form (beehiiv)
-   --------------------------------------------------------- */
-(function newsletter() {
-  const form = document.getElementById("newsletter-form");
-  const note = document.getElementById("news-note");
-  if (!form) return;
-
-  const connected =
-    CONFIG.BEEHIIV_CONNECTED &&
-    !form.action.includes("YOUR_PUBLICATION_ID");
-
-  if (connected) {
-    note.textContent = "✓ You're one coin away. We'll only email the good stuff.";
-    note.classList.add("news-form__note--ok");
-  }
-
-  form.addEventListener("submit", (e) => {
-    // If the embed isn't wired up yet, don't fire a broken request.
-    if (form.action.includes("YOUR_PUBLICATION_ID")) {
-      e.preventDefault();
-      note.textContent =
-        "⚠ Newsletter not connected yet — add your beehiiv embed id in index.html.";
-      note.classList.remove("news-form__note--ok");
-      return;
-    }
-    // Otherwise let the form post to beehiiv (opens in a new tab).
-    note.textContent = "✓ Inserting coin… check the new tab to confirm.";
-    note.classList.add("news-form__note--ok");
-  });
-})();
-
-/* ---------------------------------------------------------
-   5. Footer year
+   4. Footer year
    --------------------------------------------------------- */
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
