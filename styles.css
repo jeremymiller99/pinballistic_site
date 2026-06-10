@@ -474,7 +474,13 @@ a { color: inherit; text-decoration: none; }
 .beehiiv-embed-wrap {
   margin: 2.4rem auto 0;
   max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* center whatever the loader injects */
 }
+/* The beehiiv loader injects an iframe (or wrapper) — keep it centered. */
+.beehiiv-embed-wrap > * { margin-left: auto; margin-right: auto; }
+.beehiiv-embed-wrap iframe { display: block; margin: 0 auto; }
 
 /* =========================================================
    FINAL CTA + FOOTER
