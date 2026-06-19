@@ -20,38 +20,7 @@ document.querySelectorAll("[data-wishlist]").forEach((el) => {
 });
 
 /* ---------------------------------------------------------
-   3. Animated DMD score ticker (pure flavour)
-   --------------------------------------------------------- */
-(function dmdTicker() {
-  const scoreEl = document.getElementById("dmd-score");
-  const multEl = document.getElementById("dmd-mult");
-  if (!scoreEl) return;
-
-  let score = 0;
-  let mult = 1;
-
-  function pad(n, len) {
-    return String(n).padStart(len, "0");
-  }
-
-  setInterval(() => {
-    // bump the score by a mult-scaled chunk
-    score += Math.floor((1500 + Math.floor(Math.sqrt(score + 1) * 30)) * mult);
-    if (score > 999999999) score = 0; // roll over the display
-    scoreEl.textContent = pad(score, 9);
-
-    // occasionally bump the multiplier for that "combo" feel
-    if (Math.floor(score / 50000) % 7 === 0) {
-      mult = Math.min(mult + 1, 9);
-    } else if (mult > 1 && Math.floor(score / 90000) % 5 === 0) {
-      mult = 1;
-    }
-    multEl.textContent = "x" + mult;
-  }, 120);
-})();
-
-/* ---------------------------------------------------------
-   3b. Shooting stars — random angle / position every time
+   3. Shooting stars — random angle / position every time
    --------------------------------------------------------- */
 (function shootingStars() {
   const field = document.querySelector(".starfield");
@@ -105,7 +74,7 @@ document.querySelectorAll("[data-wishlist]").forEach((el) => {
 })();
 
 /* ---------------------------------------------------------
-   3c. Screenshot carousel — arrows, dots, swipe/scroll sync
+   3b. Screenshot carousel — arrows, dots, swipe/scroll sync
    --------------------------------------------------------- */
 (function carousel() {
   const root = document.querySelector("[data-carousel]");
@@ -115,9 +84,59 @@ document.querySelectorAll("[data-wishlist]").forEach((el) => {
   const prevBtn = root.querySelector("[data-carousel-prev]");
   const nextBtn = root.querySelector("[data-carousel-next]");
   const dotsWrap = root.querySelector("[data-carousel-dots]");
-  const slides = Array.from(track.children);
-  if (!slides.length) return;
 
+  // --- where the screenshots live (edit these if you rename things) ---
+  const FOLDER = "assets/screenshots/"; // subfolder holding the pics
+  const PREFIX = "shot-";               // file name prefix -> shot-1, shot-2, ...
+  const EXTS = ["png", "jpg", "jpeg", "webp", "gif"]; // formats to try
+
+  // Try to load a single URL; resolve true if it exists, false if 404.
+  function exists(src) {
+    return new Promise((resolve) => {
+      const probe = new Image();
+      probe.onload = () => resolve(true);
+      probe.onerror = () => resolve(false);
+      probe.src = src;
+    });
+  }
+
+  // For index n, return the first matching URL across EXTS (or null).
+  async function findShot(n) {
+    for (const ext of EXTS) {
+      const src = `${FOLDER}${PREFIX}${n}.${ext}`;
+      if (await exists(src)) return src;
+    }
+    return null;
+  }
+
+  // Walk shot-1, shot-2, ... until a number is missing, building slides.
+  async function buildSlides() {
+    let n = 1;
+    let src;
+    while ((src = await findShot(n))) {
+      const slide = document.createElement("div");
+      slide.className = "shot";
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "Pinballistic screenshot " + n;
+      img.loading = "lazy";
+      slide.appendChild(img);
+      track.appendChild(slide);
+      n++;
+    }
+    return Array.from(track.children);
+  }
+
+  buildSlides().then((slides) => {
+    if (!slides.length) {
+      // No screenshots found — leave the carousel hidden.
+      return;
+    }
+    root.hidden = false;
+    initControls(slides);
+  });
+
+  function initControls(slides) {
   // Build one dot per slide.
   const dots = slides.map((_, i) => {
     const dot = document.createElement("button");
@@ -164,6 +183,7 @@ document.querySelectorAll("[data-wishlist]").forEach((el) => {
   });
   window.addEventListener("resize", update);
   update();
+  }
 })();
 
 /* ---------------------------------------------------------

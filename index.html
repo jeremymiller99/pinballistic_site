@@ -47,11 +47,6 @@
   <!-- ====================== HERO ====================== -->
   <section id="top" class="hero">
     <div class="hero__glow" aria-hidden="true"></div>
-    <div class="hero__bumpers" aria-hidden="true">
-      <span class="bumper bumper--1"></span>
-      <span class="bumper bumper--2"></span>
-      <span class="bumper bumper--3"></span>
-    </div>
 
     <div class="hero__inner">
       <p class="hero__kicker">// NOW IN DEVELOPMENT</p>
@@ -59,20 +54,6 @@
         <span class="hero__title-line">PINBALLISTIC</span>
       </h1>
       <p class="hero__tagline">A pinball <strong>roguelike</strong> set in a galaxy in crisis.<br />Customize the board. Chain insane combos. Fuel the galaxy.</p>
-
-      <!-- DMD-style score display -->
-      <div class="dmd" role="img" aria-label="Dot matrix score display">
-        <div class="dmd__row">
-          <span class="dmd__label">SCORE</span>
-          <span class="dmd__value" id="dmd-score">000000000</span>
-        </div>
-        <div class="dmd__row dmd__row--sub">
-          <span class="dmd__label">MULTIBALL</span>
-          <span class="dmd__mult" id="dmd-mult">x1</span>
-          <span class="dmd__label">RUN</span>
-          <span class="dmd__value dmd__value--sm" id="dmd-run">01</span>
-        </div>
-      </div>
 
       <div class="hero__cta">
         <a href="#WISHLIST_URL" class="btn btn--primary wishlist-link" data-wishlist>
@@ -129,22 +110,17 @@
     <p class="section__sub">Screenshots straight from the station floor.</p>
 
     <!-- ============================================================
-         SCREENSHOT CAROUSEL
-         Add as many slides as you like — just copy a .shot block.
-         Replace each placeholder with a real image, e.g.:
-           <div class="shot"><img src="assets/shot-1.png" alt="Gameplay" /></div>
-         The arrows, dots, and swipe scrolling all work automatically.
+         SCREENSHOT CAROUSEL — auto-populated by script.js
+         Drop images into  assets/screenshots/  named:
+           shot-1.png, shot-2.png, shot-3.png, ...  (sequential)
+         Any of .png / .jpg / .jpeg / .webp / .gif work.
+         The carousel loads them in order and stops at the first
+         missing number — so the slide count tracks the folder.
          ============================================================ -->
-    <div class="carousel" data-carousel>
+    <div class="carousel" data-carousel hidden>
       <button class="carousel__btn carousel__btn--prev" data-carousel-prev aria-label="Previous screenshot">‹</button>
 
-      <div class="carousel__track" data-carousel-track>
-        <div class="shot shot--placeholder"><span>SCREENSHOT 01</span></div>
-        <div class="shot shot--placeholder"><span>SCREENSHOT 02</span></div>
-        <div class="shot shot--placeholder"><span>SCREENSHOT 03</span></div>
-        <div class="shot shot--placeholder"><span>SCREENSHOT 04</span></div>
-        <div class="shot shot--placeholder"><span>SCREENSHOT 05</span></div>
-      </div>
+      <div class="carousel__track" data-carousel-track></div>
 
       <button class="carousel__btn carousel__btn--next" data-carousel-next aria-label="Next screenshot">›</button>
 
