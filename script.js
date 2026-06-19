@@ -105,6 +105,68 @@ document.querySelectorAll("[data-wishlist]").forEach((el) => {
 })();
 
 /* ---------------------------------------------------------
+   3c. Screenshot carousel — arrows, dots, swipe/scroll sync
+   --------------------------------------------------------- */
+(function carousel() {
+  const root = document.querySelector("[data-carousel]");
+  if (!root) return;
+
+  const track = root.querySelector("[data-carousel-track]");
+  const prevBtn = root.querySelector("[data-carousel-prev]");
+  const nextBtn = root.querySelector("[data-carousel-next]");
+  const dotsWrap = root.querySelector("[data-carousel-dots]");
+  const slides = Array.from(track.children);
+  if (!slides.length) return;
+
+  // Build one dot per slide.
+  const dots = slides.map((_, i) => {
+    const dot = document.createElement("button");
+    dot.className = "carousel__dot";
+    dot.setAttribute("aria-label", "Go to screenshot " + (i + 1));
+    dot.addEventListener("click", () => scrollToSlide(i));
+    dotsWrap.appendChild(dot);
+    return dot;
+  });
+
+  function step() {
+    // Distance from one slide's start to the next (width + gap).
+    return slides.length > 1
+      ? slides[1].offsetLeft - slides[0].offsetLeft
+      : slides[0].offsetWidth;
+  }
+
+  function scrollToSlide(i) {
+    const clamped = Math.max(0, Math.min(i, slides.length - 1));
+    track.scrollTo({ left: slides[clamped].offsetLeft - track.offsetLeft, behavior: "smooth" });
+  }
+
+  function activeIndex() {
+    return Math.round(track.scrollLeft / step());
+  }
+
+  function update() {
+    const i = activeIndex();
+    dots.forEach((d, n) => d.classList.toggle("carousel__dot--active", n === i));
+    prevBtn.disabled = track.scrollLeft <= 1;
+    nextBtn.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 1;
+  }
+
+  prevBtn.addEventListener("click", () => scrollToSlide(activeIndex() - 1));
+  nextBtn.addEventListener("click", () => scrollToSlide(activeIndex() + 1));
+
+  let raf = null;
+  track.addEventListener("scroll", () => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      raf = null;
+      update();
+    });
+  });
+  window.addEventListener("resize", update);
+  update();
+})();
+
+/* ---------------------------------------------------------
    4. Footer year
    --------------------------------------------------------- */
 const yearEl = document.getElementById("year");
