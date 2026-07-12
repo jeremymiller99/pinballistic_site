@@ -7,7 +7,8 @@
    --------------------------------------------------------- */
 const CONFIG = {
   // Your Steam wishlist / store page URL (or itch.io, etc.)
-  WISHLIST_URL: "https://store.steampowered.com/app/4494280/Pinballistic/",
+    WISHLIST_URL: "https://store.steampowered.com/app/4494280/Pinballistic/",
+    DISCORD_URL: "https://discord.gg/GXAkPxCs3j",
 };
 
 /* ---------------------------------------------------------
