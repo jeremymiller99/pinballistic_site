@@ -44,6 +44,10 @@ out/
 .pnp.*
 
 ### Windows
+
+# Visual studio
+.vs/
+
 # Windows thumbnail cache files
 Thumbs.db
 
