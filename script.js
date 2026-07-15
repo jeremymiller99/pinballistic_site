@@ -9,15 +9,42 @@ const CONFIG = {
   // Your Steam wishlist / store page URL (or itch.io, etc.)
     WISHLIST_URL: "https://store.steampowered.com/app/4494280/Pinballistic/",
     DISCORD_URL: "https://discord.gg/GXAkPxCs3j",
+    YOUTUBE_URL: "https://www.youtube.com/@Pinballistic_Game",
+    INSTAGRAM_URL: "https://www.instagram.com/pinballistic.game/",
+    TIKTOK_URL: "https://www.tiktok.com/@pinballistic",
 };
 
 /* ---------------------------------------------------------
-   2. Wire up every wishlist button
+   2. Wire up every button
    --------------------------------------------------------- */
 document.querySelectorAll("[data-wishlist]").forEach((el) => {
   el.setAttribute("href", CONFIG.WISHLIST_URL);
   el.setAttribute("target", "_blank");
   el.setAttribute("rel", "noopener");
+});
+
+document.querySelectorAll("[data-discord]").forEach((el) => {
+    el.setAttribute("href", CONFIG.DISCORD_URL);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+});
+
+document.querySelectorAll("[data-insta]").forEach((el) => {
+    el.setAttribute("href", CONFIG.INSTAGRAM_URL);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+});
+
+document.querySelectorAll("[data-tiktok]").forEach((el) => {
+    el.setAttribute("href", CONFIG.TIKTOK_URL);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
+});
+
+document.querySelectorAll("[data-youtube]").forEach((el) => {
+    el.setAttribute("href", CONFIG.YOUTUBE_URL);
+    el.setAttribute("target", "_blank");
+    el.setAttribute("rel", "noopener");
 });
 
 /* ---------------------------------------------------------
@@ -85,17 +112,13 @@ document.querySelectorAll("[data-wishlist]").forEach((el) => {
     pngSrc = "assets/Pinballistic Logo Frames/F19.png";
     
     img.addEventListener("click", () => {
-        console.log("Logo clicked!");
-        // Swap to GIF and play animation
-        img.src = pngSrc;
+        // Swap to GIF
         requestAnimationFrame(() => {
             img.src = `${gifSrc}?t=${Date.now()}`;
         });
-        // Disable further clicks during animation
         img.style.pointerEvents = "none";
 
-        // Re-enable click after GIF finishes (estimate based on duration)
-        // Adjust 3000 to match your GIF's animation length in milliseconds
+        // Re-enable click after GIF finishes
         setTimeout(() => {
             img.style.pointerEvents = "auto";
             img.src = pngSrc;

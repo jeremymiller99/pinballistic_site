@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PINBALLISTIC — A Pinball Roguelike Set in a Galaxy in Crisis</title>
+    <title>Pinballistic: A Pinball Roguelike</title>
     <meta name="description" content="Pinballistic is a pinball roguelike set in a galaxy in crisis. Customize the board with special pinballs and unique components to discover insane high-scoring combinations, unlock run-altering spaceships, and fuel the galaxy." />
 
     <!-- Open Graph / social preview -->
@@ -18,7 +18,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.2.0/css/brands.min.css">
 </head>
 <body>
   <!-- Deep-space starfield -->
@@ -32,13 +31,19 @@
 
   <!-- ====================== NAV ====================== -->
   <header class="nav">
-    <a href="#top" class="nav__logo">
-        <img src="assets/Pinballistic Logo Frames/F19.png" alt="PINBALLISTIC">
-    </a>
     <nav class="nav__links">
         <a href="#newsletter">Newsletter</a>
-        <a href="#WISHLIST_URL" class="btn btn--mini wishlist-link" data-wishlist>Wishlist</a>
-        <a href="#DISCORD_URL" class="btn btn--mini discord-link" data-discord>Discord</a>
+        <a href="#WISHLIST_URL" data-wishlist>
+        <img src="assets/Brand Logos/Steam-Logo-Transparent-PNG.png" alt="Steam" />
+        <a href="#DISCORD_URL" data-discord>
+        <img src="assets/Brand Logos/Discord-Symbol-White.png" alt="Discord" />
+        <a href="#YOUTUBE_URL" data-youtube>
+        <img src="assets/Brand Logos/yt_icon_white_digital.png" alt="Youtube" />
+        <a href="#TIKTOK_URL" data-tiktok>
+        <img src="assets/Brand Logos/TikTok-Logo.png" alt="TikTok" />
+        <a href="#INSTAGRAM_URL" data-insta>
+        <img src="assets/Brand Logos/Instagram_Glyph_White.png" alt="Instagram" />
+        </a>
     </nav>
   </header>
 
@@ -52,10 +57,10 @@
 
       <div class="hero__cta">
         <a href="#WISHLIST_URL" class="btn btn--primary wishlist-link" data-wishlist>
-          <i class="fa-brands fa-steam"></i> WISHLIST NOW
+            <img src="assets/Brand Logos/Steam-Logo-Transparent-PNG.png" alt="Steam Logo" /> WISHLIST NOW
         </a>
-        <a href="#DISCORD_URL" class="btn btn--ghost">
-            <i class="fa-brands fa-discord"></i>JOIN THE DISCORD
+        <a href="#DISCORD_URL" class="btn btn--discord wishlist-link" data-discord>
+            <img src="assets/Brand Logos/Discord-Symbol-White.png" alt="Discord Logo" />  JOIN THE DISCORD
         </a>
       </div>
       <p class="hero__platforms">Coming Soon</p>
@@ -82,13 +87,6 @@
 
   <!-- ====================== FOOTER ====================== -->
   <footer class="footer">
-    <nav class="footer__social">
-      <!-- Replace # with your real links -->
-      <a href="https://discord.gg/GXAkPxCs3j" target="_blank" rel="noopener" aria-label="Discord">Discord</a>
-      <a href="#" aria-label="YouTube">YouTube</a>
-      <a href="#" aria-label="Instagram">Instagram</a>
-      <a href="#" aria-label="TikTok">TikTok</a>
-    </nav>
     <p class="footer__copy">© <span id="year"></span> Pinballistic. Made by a tiny indie studio.</p>
   </footer>
 
