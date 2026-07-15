@@ -75,15 +75,22 @@ document.querySelectorAll("[data-wishlist]").forEach((el) => {
 })();
 
 /* ---------------------------------------------------------
-   3b. Screenshot carousel — arrows, dots, swipe/scroll sync
+   Logo gif playing
    --------------------------------------------------------- */
 (function logoClick() {
     const img = document.querySelector(".hero__title-img");
     if (!img) return;
 
+    gifSrc = "assets/Logo_Transparent.gif";
+    pngSrc = "assets/Pinballistic Logo Frames/F19.png";
+    
     img.addEventListener("click", () => {
+        console.log("Logo clicked!");
         // Swap to GIF and play animation
-        img.src = "assets/Logo.gif";
+        img.src = pngSrc;
+        requestAnimationFrame(() => {
+            img.src = `${gifSrc}?t=${Date.now()}`;
+        });
         // Disable further clicks during animation
         img.style.pointerEvents = "none";
 
@@ -91,7 +98,8 @@ document.querySelectorAll("[data-wishlist]").forEach((el) => {
         // Adjust 3000 to match your GIF's animation length in milliseconds
         setTimeout(() => {
             img.style.pointerEvents = "auto";
-        }, 3000);
+            img.src = pngSrc;
+        }, 2000);
     });
 })();
 
